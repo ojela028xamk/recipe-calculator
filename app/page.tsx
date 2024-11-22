@@ -1,14 +1,14 @@
 "use client";
 import { useState } from "react";
 import css from "./page.module.scss";
-import { getProductList } from "./services/databaseService";
+import { getProducts } from "./services/databaseService";
 import { useEffectOnce } from "react-use";
 
 export default function Home() {
   const [productList, setProductList] = useState<any[]>([]);
 
   useEffectOnce(() => {
-    getProductList()
+    getProducts()
       .then((res) => setProductList(res))
       .catch((err) => console.log(err));
   });
