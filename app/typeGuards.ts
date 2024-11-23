@@ -22,12 +22,14 @@ const isValidProductsDataObject = (dataObj: Product): dataObj is Product => {
 
   if (!hasCorrectKeys) return false;
 
+  const correctUnit = Object.values(Unit).includes(dataObj.unit);
+
   if (
     typeof dataObj.id !== "number" ||
     typeof dataObj.name !== "string" ||
     typeof dataObj.calorie !== "number" ||
-    typeof dataObj.protein !== "number" ||
-    dataObj.unit !== (Unit.G || Unit.ML)
+    typeof dataObj.protein !== "string" ||
+    !correctUnit
   ) {
     return false;
   }
