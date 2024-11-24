@@ -4,7 +4,11 @@ import { useEffectOnce } from "react-use";
 import { Product } from "../globalTypes";
 import { getProducts } from "../services/databaseService";
 
-const Products = () => {
+type ProductsProps = {
+  addProduct: (product: Product) => void;
+};
+
+const Products = ({ addProduct }: ProductsProps) => {
   const [productList, setProductList] = useState<Product[]>([]);
 
   useEffectOnce(() => {
@@ -23,6 +27,9 @@ const Products = () => {
               <th>{product.calorie}</th>
               <th>{product.protein}</th>
               <th>{product.unit}</th>
+              <th>
+                <button onClick={() => addProduct(product)}>Add +</button>
+              </th>
             </tr>
           ))}
         </tbody>
