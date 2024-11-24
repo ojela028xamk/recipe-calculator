@@ -36,7 +36,7 @@ const AppContainer = () => {
 
   return (
     <div className={css.app_container}>
-      <Products addProduct={handleAddProduct} />
+      <Products addProduct={handleAddProduct} recipe={recipe} />
       <Recipe
         recipe={recipe}
         modifyAmount={handleModifyAmount}
