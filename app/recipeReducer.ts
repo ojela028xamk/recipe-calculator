@@ -1,16 +1,25 @@
-import { Action, ActionType, Product } from "./globalTypes";
+import { Action, ActionType, RecipeItem } from "./globalTypes";
 
-const recipeReducer = (recipe: Product[], action: Action) => {
+const recipeReducer = (recipe: RecipeItem[], action: Action) => {
   switch (action.type) {
     case ActionType.ADD: {
-      return [...recipe, action.newProduct];
+      const newRecipe = [...recipe, action.recipeItem];
+      return newRecipe;
     }
     case ActionType.MODIFY: {
-      console.log("Implement modify");
-      return [];
+      const newRecipe = recipe.map((item) => {
+        if (item.id === action.id) {
+          const newItem = { ...item, amount: action.amount };
+          return newItem;
+        } else {
+          return item;
+        }
+      });
+      return newRecipe;
     }
     case ActionType.DELETE: {
-      return recipe.filter((product) => product.id !== action.id);
+      const newRecipe = recipe.filter((item) => item.id !== action.id);
+      return newRecipe;
     }
     default: {
       throw Error("Unknown action");

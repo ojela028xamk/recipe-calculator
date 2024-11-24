@@ -1,26 +1,29 @@
-import { Product } from "../globalTypes";
+import { Product, RecipeItem } from "../globalTypes";
 import css from "./recipe.module.scss";
 
 type RecipeProps = {
-  recipe: Product[];
-  deleteProduct: (productId: number) => void;
+  recipe: RecipeItem[];
+  modifyAmount: (itemId: number, amount: number) => void;
+  deleteProduct: (itemId: number) => void;
 };
 
-const Recipe = ({ recipe, deleteProduct }: RecipeProps) => {
+const Recipe = ({ recipe, modifyAmount, deleteProduct }: RecipeProps) => {
   return (
     <div className={css.recipe}>
       <table>
         <tbody>
-          {recipe.map((product) => (
-            <tr key={product.id}>
-              <th>{product.name}</th>
-              <th>{product.calorie}</th>
-              <th>{product.protein}</th>
-              <th>{product.unit}</th>
+          {recipe.map((item) => (
+            <tr key={item.id}>
+              <th>{item.name}</th>
+              <th>{item.calorie}</th>
+              <th>{item.protein}</th>
+              <th>{item.amount}</th>
+              <th>{item.unit}</th>
               <th>
-                <button onClick={() => deleteProduct(product.id)}>
-                  Delete -
+                <button onClick={() => modifyAmount(item.id, 50)}>
+                  Amount
                 </button>
+                <button onClick={() => deleteProduct(item.id)}>X</button>
               </th>
             </tr>
           ))}

@@ -6,6 +6,10 @@ export type Product = {
   unit: Unit;
 };
 
+export interface RecipeItem extends Product {
+  amount: number;
+}
+
 export enum Unit {
   G = "g",
   ML = "ml",
@@ -19,11 +23,13 @@ export enum ActionType {
 
 type ActionAddProduct = {
   type: ActionType.ADD;
-  newProduct: Product;
+  recipeItem: RecipeItem;
 };
 
 type ActionModifyAmount = {
   type: ActionType.MODIFY;
+  id: number;
+  amount: number;
 };
 
 type ActionDeleteProduct = {
