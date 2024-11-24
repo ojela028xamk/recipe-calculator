@@ -1,5 +1,4 @@
-import { Action, ActionType } from "./appContainer";
-import { Product } from "./globalTypes";
+import { Action, ActionType, Product } from "./globalTypes";
 
 const recipeReducer = (recipe: Product[], action: Action) => {
   switch (action.type) {
@@ -7,13 +6,14 @@ const recipeReducer = (recipe: Product[], action: Action) => {
       return [...recipe, action.newProduct];
     }
     case ActionType.MODIFY: {
-      console.log("modify");
+      console.log("Implement modify");
+      return [];
     }
     case ActionType.DELETE: {
-      console.log("delete");
+      return recipe.filter((product) => product.id !== action.id);
     }
     default: {
-      throw Error("Unknown action: " + action.type);
+      throw Error("Unknown action");
     }
   }
 };
