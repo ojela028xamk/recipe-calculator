@@ -1,3 +1,4 @@
+// Food products and recipe
 export type Product = {
   id: number;
   name: string;
@@ -15,6 +16,7 @@ export enum Unit {
   ML = "ml",
 }
 
+// React Reducer
 export enum ActionType {
   ADD = "add",
   MODIFY = "modify",
