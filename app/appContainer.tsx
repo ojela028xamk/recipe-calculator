@@ -5,11 +5,10 @@ import Products from "./components/products";
 import Recipe from "./components/recipe";
 import recipeReducer from "./recipeReducer";
 import { ActionType, Product, RecipeItem } from "./globalTypes";
-
-const initialRecipe: RecipeItem[] = [];
+import RecipeData from "./components/recipeData";
 
 const AppContainer = () => {
-  const [recipe, dispatch] = useReducer(recipeReducer, initialRecipe);
+  const [recipe, dispatch] = useReducer(recipeReducer, []);
 
   const handleAddProduct = (product: Product) => {
     const newRecipeItem: RecipeItem = { ...product, amount: 100 };
@@ -42,6 +41,7 @@ const AppContainer = () => {
         modifyAmount={handleModifyAmount}
         deleteProduct={handleDeleteProduct}
       />
+      <RecipeData recipe={recipe} />
     </div>
   );
 };
