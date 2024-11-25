@@ -1,6 +1,7 @@
 import { RecipeItem } from "../globalTypes";
-import css from "./recipe.module.scss";
 import { useState } from "react";
+import css from "./recipe.module.scss";
+import tablecss from "./table.module.scss";
 
 type RecipeProps = {
   recipe: RecipeItem[];
@@ -26,7 +27,7 @@ const Recipe = ({ recipe, modifyAmount, deleteProduct }: RecipeProps) => {
 
   return (
     <div className={css.recipe}>
-      <table>
+      <table className={tablecss.table}>
         <tbody>
           {recipe.map((item) => (
             <tr key={item.id}>

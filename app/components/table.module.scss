@@ -1,0 +1,23 @@
+@import "../main.scss";
+
+.table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  color: $white;
+  border: 2px solid $blue;
+
+  td,
+  th {
+    text-align: left;
+    padding: 0.7em;
+  }
+
+  tr:nth-child(even) {
+    background-color: $blue;
+  }
+
+  tr:nth-child(odd) {
+    background-color: $black;
+  }
+}

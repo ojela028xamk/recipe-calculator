@@ -1,8 +1,9 @@
 import { useState } from "react";
-import css from "./products.module.scss";
 import { useEffectOnce } from "react-use";
 import { Product, RecipeItem } from "../globalTypes";
 import { getProducts } from "../services/databaseService";
+import css from "./products.module.scss";
+import tablecss from "./table.module.scss";
 
 type ProductsProps = {
   addProduct: (product: Product) => void;
@@ -20,7 +21,7 @@ const Products = ({ addProduct, recipe }: ProductsProps) => {
 
   return (
     <div className={css.products}>
-      <table>
+      <table className={tablecss.table}>
         <tbody>
           {productList.map((product) => {
             const recipeHasItem = recipe.some((item) => product.id === item.id);
