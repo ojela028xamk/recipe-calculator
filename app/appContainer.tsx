@@ -1,6 +1,6 @@
 "use client";
 import { useReducer } from "react";
-import css from "./AppContainer.module.scss";
+import css from "./appContainer.module.scss";
 import Products from "./components/products";
 import Recipe from "./components/recipe";
 import recipeReducer from "./recipeReducer";
