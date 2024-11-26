@@ -1,4 +1,7 @@
 .recipe {
   grid-area: 1 / 2 / 3 / 3;
   padding: 1em;
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
