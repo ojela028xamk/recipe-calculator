@@ -22,21 +22,33 @@ const Products = ({ addProduct, recipe }: ProductsProps) => {
   return (
     <div className={css.products}>
       <table className={tablecss.table}>
+        <thead>
+          <tr>
+            <th colSpan={5}>Food product per 100 g/ml</th>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>Protein</th>
+            <th>Unit</th>
+            <th></th>
+          </tr>
+        </thead>
         <tbody>
           {productList.map((product) => {
             const recipeHasItem = recipe.some((item) => product.id === item.id);
 
             return (
               <tr key={product.id}>
-                <th>{product.name}</th>
-                <th>{product.calorie}</th>
-                <th>{product.protein}</th>
-                <th>{product.unit}</th>
-                <th>
+                <td>{product.name}</td>
+                <td>{product.calorie}</td>
+                <td>{product.protein}</td>
+                <td>{product.unit}</td>
+                <td>
                   {!recipeHasItem && (
                     <button onClick={() => addProduct(product)}>Add +</button>
                   )}
-                </th>
+                </td>
               </tr>
             );
           })}

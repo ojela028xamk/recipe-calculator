@@ -28,6 +28,19 @@ const Recipe = ({ recipe, modifyAmount, deleteProduct }: RecipeProps) => {
   return (
     <div className={css.recipe}>
       <table className={tablecss.table}>
+        <thead>
+          <tr>
+            <th colSpan={7}>Recipe</th>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>Protein</th>
+            <th>Amount</th>
+            <th>Unit</th>
+            <th colSpan={2}></th>
+          </tr>
+        </thead>
         <tbody>
           {recipe.map((item) => (
             <tr key={item.id}>
