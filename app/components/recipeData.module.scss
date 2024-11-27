@@ -1,3 +1,13 @@
+@import "../main.scss";
+
 .recipe_data {
-  margin: 1em;
+  color: $white;
+  grid-area: 3 / 2 / 4 / 3;
+
+  h1 {
+    width: 400px;
+    padding: 0.6em;
+    border-radius: 1em;
+    background-color: $blue;
+  }
 }

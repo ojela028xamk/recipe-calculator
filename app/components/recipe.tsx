@@ -1,6 +1,7 @@
 import { RecipeItem } from "../globalTypes";
-import css from "./recipe.module.scss";
 import { useState } from "react";
+import css from "./recipe.module.scss";
+import tablecss from "./table.module.scss";
 
 type RecipeProps = {
   recipe: RecipeItem[];
@@ -26,21 +27,34 @@ const Recipe = ({ recipe, modifyAmount, deleteProduct }: RecipeProps) => {
 
   return (
     <div className={css.recipe}>
-      <table>
+      <table className={tablecss.table}>
+        <thead>
+          <tr>
+            <th colSpan={7}>Recipe</th>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>Protein</th>
+            <th>Amount</th>
+            <th>Unit</th>
+            <th colSpan={2}></th>
+          </tr>
+        </thead>
         <tbody>
           {recipe.map((item) => (
             <tr key={item.id}>
-              <th>{item.name}</th>
-              <th>{item.calorie}</th>
-              <th>{item.protein}</th>
-              <th>{item.amount}</th>
-              <th>{item.unit}</th>
-              <th>
+              <td>{item.name}</td>
+              <td>{item.calorie}</td>
+              <td>{item.protein}</td>
+              <td>{item.amount}</td>
+              <td>{item.unit}</td>
+              <td>
                 {currentItemId !== item.id && (
                   <button
                     onClick={() => handleNewAmountChange(item.id, item.amount)}
                   >
-                    Change amount
+                    Change
                   </button>
                 )}
                 {currentItemId === item.id && (
@@ -57,10 +71,10 @@ const Recipe = ({ recipe, modifyAmount, deleteProduct }: RecipeProps) => {
                     </button>
                   </>
                 )}
-              </th>
-              <th>
-                <button onClick={() => deleteProduct(item.id)}>X</button>
-              </th>
+              </td>
+              <td>
+                <button onClick={() => deleteProduct(item.id)}>x</button>
+              </td>
             </tr>
           ))}
         </tbody>

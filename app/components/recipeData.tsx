@@ -39,8 +39,8 @@ const RecipeData = ({ recipe }: RecipeDataProps) => {
 
   return (
     <div className={css.recipe_data}>
-      <h2>Calories: {recipeData.calories}</h2>
-      <h2>Protein: {recipeData.protein}</h2>
+      <h1>Calories: {recipeData.calories} kcal</h1>
+      <h1>Protein: {recipeData.protein} g</h1>
     </div>
   );
 };
