@@ -44,12 +44,12 @@ const Recipe = ({ recipe, modifyAmount, deleteProduct }: RecipeProps) => {
         <tbody>
           {recipe.map((item) => (
             <tr key={item.id}>
-              <th>{item.name}</th>
-              <th>{item.calorie}</th>
-              <th>{item.protein}</th>
-              <th>{item.amount}</th>
-              <th>{item.unit}</th>
-              <th>
+              <td>{item.name}</td>
+              <td>{item.calorie}</td>
+              <td>{item.protein}</td>
+              <td>{item.amount}</td>
+              <td>{item.unit}</td>
+              <td>
                 {currentItemId !== item.id && (
                   <button
                     onClick={() => handleNewAmountChange(item.id, item.amount)}
@@ -71,10 +71,10 @@ const Recipe = ({ recipe, modifyAmount, deleteProduct }: RecipeProps) => {
                     </button>
                   </>
                 )}
-              </th>
-              <th>
+              </td>
+              <td>
                 <button onClick={() => deleteProduct(item.id)}>X</button>
-              </th>
+              </td>
             </tr>
           ))}
         </tbody>
