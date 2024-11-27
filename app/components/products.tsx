@@ -12,15 +12,37 @@ type ProductsProps = {
 
 const Products = ({ addProduct, recipe }: ProductsProps) => {
   const [productList, setProductList] = useState<Product[]>([]);
+  const [filteredProductList, setFilteredProductList] = useState<Product[]>([]);
 
   useEffectOnce(() => {
     getProducts()
-      .then((res) => setProductList(res as Product[]))
+      .then((res) => {
+        setProductList(res as Product[]);
+        setFilteredProductList(res as Product[]);
+      })
       .catch((err) => console.log(err));
   });
 
+  const handleSearch = (searchWord: string) => {
+    if (searchWord === "") setFilteredProductList(productList);
+
+    const search = searchWord.toLocaleLowerCase();
+
+    const newList = productList.filter((product) => {
+      if (product.name.toLocaleLowerCase().includes(search)) return true;
+    });
+
+    setFilteredProductList(newList);
+  };
+
   return (
     <div className={css.products}>
+      <input
+        className={css.searchbar}
+        type="text"
+        placeholder="Search..."
+        onChange={(event) => handleSearch(event.currentTarget.value)}
+      />
       <table className={tablecss.table}>
         <thead>
           <tr>
@@ -35,7 +57,7 @@ const Products = ({ addProduct, recipe }: ProductsProps) => {
           </tr>
         </thead>
         <tbody>
-          {productList.map((product) => {
+          {filteredProductList.map((product) => {
             const recipeHasItem = recipe.some((item) => product.id === item.id);
 
             return (

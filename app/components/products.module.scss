@@ -7,6 +7,13 @@
   overflow-y: scroll;
   overflow-x: hidden;
 
+  .searchbar {
+    margin: 1em 0;
+    padding: 0.4em;
+    font-size: 1.2em;
+    background-color: $white;
+  }
+
   button {
     color: $white;
     background-color: $blue;
