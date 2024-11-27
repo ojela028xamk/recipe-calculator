@@ -54,7 +54,7 @@ const Recipe = ({ recipe, modifyAmount, deleteProduct }: RecipeProps) => {
                   <button
                     onClick={() => handleNewAmountChange(item.id, item.amount)}
                   >
-                    Change amount
+                    Change
                   </button>
                 )}
                 {currentItemId === item.id && (
@@ -73,7 +73,7 @@ const Recipe = ({ recipe, modifyAmount, deleteProduct }: RecipeProps) => {
                 )}
               </td>
               <td>
-                <button onClick={() => deleteProduct(item.id)}>X</button>
+                <button onClick={() => deleteProduct(item.id)}>x</button>
               </td>
             </tr>
           ))}

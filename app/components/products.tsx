@@ -46,7 +46,7 @@ const Products = ({ addProduct, recipe }: ProductsProps) => {
                 <td>{product.unit}</td>
                 <td>
                   {!recipeHasItem && (
-                    <button onClick={() => addProduct(product)}>Add +</button>
+                    <button onClick={() => addProduct(product)}>+</button>
                   )}
                 </td>
               </tr>
