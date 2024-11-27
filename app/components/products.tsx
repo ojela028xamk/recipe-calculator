@@ -38,6 +38,7 @@ const Products = ({ addProduct, recipe }: ProductsProps) => {
   return (
     <div className={css.products}>
       <input
+        className={css.searchbar}
         type="text"
         placeholder="Search..."
         onChange={(event) => handleSearch(event.currentTarget.value)}
